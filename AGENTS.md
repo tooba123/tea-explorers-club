@@ -1,8 +1,11 @@
 # Tea Explorers Club
 
+## Project
+
+Tea Explorers Club is a command-line tool for one newsletter: Tea Explorers Club. It manages the subscribers, reviews an issue, and sends practice copies to a test mail server.
+
 ## Project rules
 
-- Tea Explorers Club is a command-line tool for one newsletter: Tea Explorers Club. It manages the subscribers, reviews an issue, and sends practice copies to a test mail server.
 - Use uv for everything.
 - Never use a real person's email address. Use @example.com, and @resend.dev for practice sends.
 - Commit and push after every step.
@@ -10,7 +13,7 @@
 
 ## How I learn
 
-- I am new to Python. I have completed up to 13.7 of https://agentfactory.panaversity.org/building-ai-workers/programming-fundamentals/ and I update this number as I learn.
+- I am new to Python. I have completed up to 13.8 of https://agentfactory.panaversity.org/building-ai-workers/programming-fundamentals/ and I update this number as I learn.
 - Write only with what I have learned. If something new would really help, stop and tell me its name in one line. I decide.
 - When the code uses something new, show me that piece first and ask me to predict what it does. Stay quiet while I guess. Then run it, and explain a line only when I ask.
 
