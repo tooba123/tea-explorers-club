@@ -48,3 +48,7 @@ def count_subscribers(subscribers):
 
 def count_by_group(subscribers, group):
     return sum(1 for subscriber in subscribers if subscriber.get("group") == group)
+
+
+def count_consent(subscribers):
+    return sum(1 for subscriber in subscribers if subscriber.get("consent"))

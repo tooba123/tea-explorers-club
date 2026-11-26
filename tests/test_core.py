@@ -2,6 +2,7 @@ from tea_explorers_club.core import (
     add_subscriber,
     check_issue,
     count_by_group,
+    count_consent,
     count_subscribers,
     is_allowed_email,
     load_subscribers,
@@ -50,3 +51,7 @@ def test_group_counts_are_eight_each():
     assert count_by_group(subscribers, "tea-curious") == 8
     assert count_by_group(subscribers, "gift-buyers") == 8
     assert count_by_group(subscribers, "daily-drinkers") == 8
+
+
+def test_total_consent_count_is_24():
+    assert count_consent(load_subscribers()) == 24
