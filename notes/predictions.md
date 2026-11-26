@@ -12,3 +12,12 @@
 - **The gift-buyers** will convert on curated, occasion-based picks (housewarming, thank-you, holidays) with clear price ranges and ready-to-give packaging.
 - **The daily-drinkers** will stay for routine-friendly content: quick brewing methods, refill guidance, and small upgrades that make an everyday cup feel special.
 - The name **Tea Explorers Club** sets an inviting, low-pressure tone — curiosity over expertise — which should appeal across all three groups.
+
+## Subscriber counts
+
+- **Total subscribers:** 24
+- **The tea-curious:** 8
+- **The gift-buyers:** 8
+- **The daily-drinkers:** 8
+
+These numbers become the first checks.
