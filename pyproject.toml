@@ -1,0 +1,22 @@
+[project]
+name = "tea-explorers-club"
+version = "0.1.0"
+description = "Command-line tool for the Tea Explorers Club newsletter."
+readme = "README.md"
+authors = [
+    { name = "Tea Explorers Club", email = "hello@example.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+tea-explorers-club = "tea_explorers_club:main"
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
