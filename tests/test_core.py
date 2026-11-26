@@ -1,7 +1,10 @@
 from tea_explorers_club.core import (
     add_subscriber,
     check_issue,
+    count_by_group,
+    count_subscribers,
     is_allowed_email,
+    load_subscribers,
     send_practice,
 )
 
@@ -36,3 +39,14 @@ def test_send_practice_builds_messages():
     assert len(messages) == 2
     assert "reader@example.com" in messages[0]
     assert "practice@resend.dev" in messages[1]
+
+
+def test_total_subscriber_count_is_24():
+    assert count_subscribers(load_subscribers()) == 24
+
+
+def test_group_counts_are_eight_each():
+    subscribers = load_subscribers()
+    assert count_by_group(subscribers, "tea-curious") == 8
+    assert count_by_group(subscribers, "gift-buyers") == 8
+    assert count_by_group(subscribers, "daily-drinkers") == 8

@@ -1,4 +1,7 @@
+import csv
+
 ALLOWED_DOMAINS = ("@example.com", "@resend.dev")
+DATA_FILE = "data/subscribers.csv"
 
 
 def is_allowed_email(email):
@@ -32,3 +35,16 @@ def send_practice(issue, subscribers):
             raise ValueError("Refusing to send to a real address: " + email)
         messages.append("Practice copy of '" + issue["title"] + "' sent to " + email)
     return messages
+
+
+def load_subscribers(path=DATA_FILE):
+    with open(path, newline="") as file:
+        return list(csv.DictReader(file))
+
+
+def count_subscribers(subscribers):
+    return len(subscribers)
+
+
+def count_by_group(subscribers, group):
+    return sum(1 for subscriber in subscribers if subscriber.get("group") == group)

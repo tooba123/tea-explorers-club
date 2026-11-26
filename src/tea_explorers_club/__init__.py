@@ -1,7 +1,22 @@
-from tea_explorers_club.core import add_subscriber, send_practice
+import sys
+
+from tea_explorers_club.core import (
+    add_subscriber,
+    count_by_group,
+    count_subscribers,
+    load_subscribers,
+    send_practice,
+)
 
 
 def main():
+    if "subscribers" in sys.argv:
+        subscribers = load_subscribers()
+        print("total", count_subscribers(subscribers))
+        for group in ("tea-curious", "gift-buyers", "daily-drinkers"):
+            print(group, count_by_group(subscribers, group))
+        return
+
     subscribers = []
     add_subscriber(subscribers, "reader@example.com")
     add_subscriber(subscribers, "giftbuyer@example.com")
