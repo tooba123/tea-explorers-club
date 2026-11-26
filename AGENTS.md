@@ -6,6 +6,7 @@
 - Use uv for everything.
 - Never use a real person's email address. Use @example.com, and @resend.dev for practice sends.
 - Commit and push after every step.
+- After every code change, run uv run pytest. Never commit or push while tests fail.
 
 ## How I learn
 
