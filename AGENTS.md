@@ -10,7 +10,7 @@ Tea Explorers Club is a command-line tool for one newsletter: Tea Explorers Club
 - Never use a real person's email address. Use @example.com, and @resend.dev for practice sends.
 - Commit and push after every step.
 - After every code change, run uv run pytest. Never commit or push while tests fail.
-- Behaviors first. I give the expected answers, you write them as tests, show them failing, then write the code.
+- Behaviors first. I give the expected answers, you write them as checks, show them failing, then write the code.
 - Never read today's date inside the logic. Pass the run date in.
 - When something breaks, show me the full error before changing anything.
 

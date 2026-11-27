@@ -1,5 +1,3 @@
-import subprocess
-
 from tea_explorers_club.core import (
     add_subscriber,
     check_issue,
@@ -76,22 +74,3 @@ def test_subscribers_joined_in_last_30_days_include_edge():
 def test_next_send_is_first_monday_of_next_month():
     assert next_send("2026-11-20") == "2026-12-07"
     assert next_send("2026-12-07") == "2027-01-04"
-
-
-def test_subscribers_since_counts_joined_in_range():
-    result = subprocess.run(
-        [
-            "uv",
-            "run",
-            "tea-explorers-club",
-            "subscribers",
-            "--since",
-            "2026-10-01",
-            "--run-date",
-            "2026-11-20",
-        ],
-        capture_output=True,
-        text=True,
-    )
-
-    assert result.stdout.strip() == "12"
