@@ -70,6 +70,17 @@ def subscribers_joined_since_days(subscribers, days, run_date):
     return joined
 
 
+def subscribers_joined_since(subscribers, since_date, run_date):
+    run_day = date.fromisoformat(run_date)
+    start_day = date.fromisoformat(since_date)
+    joined = []
+    for subscriber in subscribers:
+        joined_on = date.fromisoformat(subscriber["joined_on"])
+        if joined_on >= start_day and joined_on <= run_day:
+            joined.append(subscriber)
+    return joined
+
+
 def next_send(run_date):
     run_day = date.fromisoformat(run_date)
     year = run_day.year

@@ -9,6 +9,7 @@ from tea_explorers_club.core import (
     load_subscribers,
     next_send,
     send_practice,
+    subscribers_joined_since,
     subscribers_joined_since_days,
 )
 
@@ -27,6 +28,12 @@ def main():
             index = sys.argv.index("--since-days")
             days = int(sys.argv[index + 1])
             joined = subscribers_joined_since_days(subscribers, days, run_date)
+            print(len(joined))
+            return
+        if "--since" in sys.argv:
+            index = sys.argv.index("--since")
+            since_date = sys.argv[index + 1]
+            joined = subscribers_joined_since(subscribers, since_date, run_date)
             print(len(joined))
             return
         print("total", count_subscribers(subscribers))
