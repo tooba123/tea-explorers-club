@@ -1,4 +1,5 @@
 import csv
+from datetime import date, timedelta
 
 ALLOWED_DOMAINS = ("@example.com", "@resend.dev")
 DATA_FILE = "data/subscribers.csv"
@@ -51,4 +52,32 @@ def count_by_group(subscribers, group):
 
 
 def count_consent(subscribers):
-    return sum(1 for subscriber in subscribers if subscriber.get("consent"))
+    return sum(
+        1
+        for subscriber in subscribers
+        if subscriber.get("consent") and subscriber.get("consent").lower() != "waitlist form"
+    )
+
+
+def subscribers_joined_since_days(subscribers, days, run_date):
+    run_day = date.fromisoformat(run_date)
+    start_day = run_day - timedelta(days=days)
+    joined = []
+    for subscriber in subscribers:
+        joined_on = date.fromisoformat(subscriber["joined_on"])
+        if joined_on >= start_day and joined_on <= run_day:
+            joined.append(subscriber)
+    return joined
+
+
+def next_send(run_date):
+    run_day = date.fromisoformat(run_date)
+    year = run_day.year
+    month = run_day.month + 1
+    if month == 13:
+        month = 1
+        year = year + 1
+    first_day = date(year, month, 1)
+    days_ahead = (7 - first_day.weekday()) % 7
+    send_day = first_day + timedelta(days=days_ahead)
+    return send_day.isoformat()

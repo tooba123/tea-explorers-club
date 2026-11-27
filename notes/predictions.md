@@ -21,3 +21,11 @@
 - **The daily-drinkers:** 8
 
 These numbers become the first checks.
+
+## Last 30 days
+
+- **Run date:** 20 November 2026
+- **Include subscribers who joined on 21 October 2026 (exactly 30 days earlier):** Yes.
+- **Total subscribers who joined in the last 30 days:** 7
+- **First newsletter sending date:** Monday, 7 December 2026.
+- **Following newsletter sending date:** Monday, 4 January 2027.

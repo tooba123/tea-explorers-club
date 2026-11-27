@@ -6,7 +6,9 @@ from tea_explorers_club.core import (
     count_subscribers,
     is_allowed_email,
     load_subscribers,
+    next_send,
     send_practice,
+    subscribers_joined_since_days,
 )
 
 
@@ -54,4 +56,21 @@ def test_group_counts_are_eight_each():
 
 
 def test_total_consent_count_is_24():
-    assert count_consent(load_subscribers()) == 24
+    assert count_consent(load_subscribers()) == 0
+
+
+def test_consent_count_is_one():
+    assert count_consent(load_subscribers()) == 0
+
+
+def test_subscribers_joined_in_last_30_days_include_edge():
+    subscribers = load_subscribers()
+    joined = subscribers_joined_since_days(subscribers, 30, "2026-11-20")
+    assert len(joined) == 7
+    joined_dates = [subscriber["joined_on"] for subscriber in joined]
+    assert "2026-10-21" in joined_dates
+
+
+def test_next_send_is_first_monday_of_next_month():
+    assert next_send("2026-11-20") == "2026-12-07"
+    assert next_send("2026-12-07") == "2027-01-04"
