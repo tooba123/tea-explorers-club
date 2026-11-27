@@ -29,3 +29,9 @@ These numbers become the first checks.
 - **Total subscribers who joined in the last 30 days:** 7
 - **First newsletter sending date:** Monday, 7 December 2026.
 - **Following newsletter sending date:** Monday, 4 January 2027.
+
+## Bad date
+
+- **Bad date:** If someone retyped a subscriber's `joined_on` as `2026-02-30`, Mailroom will crash.
+- **Last line of error:** `ValueError: day is out of range for month`
+- **Function named:** `subscribers_joined_since_days` in `src/tea_explorers_club/core.py` (from `date.fromisoformat(...)`).
